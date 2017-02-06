@@ -43,7 +43,8 @@ namespace Snake
             Console.SetCursorPosition(BUFFER_WIDTH / 2, BUFFER_HEIGHT  / 2);
 
             #endregion
-            
+
+            #region DRAWING SNAKE
             //location of the end of the snake
             int xEndSnake = 10;
             int yEndSnake = 10;
@@ -60,7 +61,10 @@ namespace Snake
             //creating of the new snake
             Snake snake = new Snake(beginPoint, snakeLenght, Direction.Right);
 
+            //draw snake
             snake.DrawSnake();
+
+            #endregion
 
             Console.ReadKey();
         }
