@@ -15,23 +15,27 @@ namespace Snake
 
             //Intitialization of game constats
             const int HORIZONT_BORDER = 70;
-            const int VERTICAL_BORDER = 70;
+            const int VERTICAL_BORDER = 30;
 
             const int BUFFER_WIDTH = 70;
-            const int BUFFER_HEIGHT = 70;
+            const int BUFFER_HEIGHT = 30;
 
-            //set buffer size
+            //set window size
+            Console.SetWindowSize(BUFFER_WIDTH, BUFFER_HEIGHT);
             Console.SetBufferSize(BUFFER_WIDTH, BUFFER_HEIGHT);
 
 
             //start point
             int startX = 0;
-            int startY = 0;
+            int startY = 1;
 
             char symbol = '#';
 
             HorizontalLine horizontalLine = new HorizontalLine(HORIZONT_BORDER, startX, startY, symbol);
-            horizontalLine.DrawHorizontalLine();
+
+            //draw top and bottom borders
+            horizontalLine.DrawTopHorizontalLine();
+            horizontalLine.DrawBottomHorizontalLine(BUFFER_HEIGHT);
 
             Console.ReadKey();
         }
