@@ -21,7 +21,7 @@ namespace Snake
             Console.SetWindowSize(BUFFER_WIDTH, BUFFER_HEIGHT);
             Console.SetBufferSize(BUFFER_WIDTH, BUFFER_HEIGHT);
 
-
+            #region DRAWING BORDER
             //start point
             int startX = 0;
             int startY = 1;
@@ -41,6 +41,26 @@ namespace Snake
 
             //set cursor in the center
             Console.SetCursorPosition(BUFFER_WIDTH / 2, BUFFER_HEIGHT  / 2);
+
+            #endregion
+            
+            //location of the end of the snake
+            int xEndSnake = 10;
+            int yEndSnake = 10;
+
+            //snake lenght
+            int snakeLenght = 4;
+
+            //snakes body
+            char snakeBody = '*';
+
+            //creating beginning point of the snake
+            Point beginPoint = new Point(xEndSnake, yEndSnake, snakeBody);
+
+            //creating of the new snake
+            Snake snake = new Snake(beginPoint, snakeLenght, Direction.Right);
+
+            snake.DrawSnake();
 
             Console.ReadKey();
         }
