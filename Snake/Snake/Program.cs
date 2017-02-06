@@ -10,9 +10,6 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            //list of the points for border lines
-            List<Point> points = new List<Point>();
-
             //Intitialization of game constats
             const int HORIZONT_BORDER = 70;
             const int VERTICAL_BORDER = 30;
