@@ -10,28 +10,32 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            int x1 = 1;
-            int y1 = 3;
+            //list of the points for border lines
+            List<Point> points = new List<Point>();
 
-            char sym1 = '*';
+            //Intitialization of game constats
+            const int HORTZONT_BORDER = 10;
 
-            //creating point object 
-            Point point1 = new Point(x1, y1, sym1);
+            //start point
+            int startX = 3;
+            int startY = 4;
 
-            //point draw itself
-            point1.Draw();
+            char symbol = '#';
 
 
-            int x2 = 4;
-            int y2 = 5;
+            for (int i = 0; i < HORTZONT_BORDER; i++)
+            {
+                //creating new point objects
+                points.Add(new Point(startX, startY, symbol));
 
-            char sym2 = '#';
+                //shifting x location
+                startX += 1;
+            }
 
-            //creating point object 
-            Point point2 = new Point(x2, y2, sym2);
+            //new line object
+            HorizontalLine horizontalLine = new HorizontalLine(points);
 
-            //point draw itself
-            point2.Draw();
+            horizontalLine.DrawHorizontalLine();
 
             Console.ReadKey();
         }
