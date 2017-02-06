@@ -23,6 +23,27 @@ namespace Snake
             this.symbol = symbol;
         }
 
+        //shifting of the snake point
+        public void ShiftedPoint(int offset, Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.Down:
+                    y += offset;
+                    break;
+                case Direction.Up:
+                    y -= offset;
+                    break;
+
+                case Direction.Right:
+                    x += offset;
+                    break;
+                case Direction.Left:
+                    x -= offset;
+                    break;
+            }
+        }
+
         public int X
         {
             get { return x; }
