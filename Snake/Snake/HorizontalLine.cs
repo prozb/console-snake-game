@@ -9,11 +9,18 @@ namespace Snake
     class HorizontalLine
     {
         //using list of the points
-        List<Point> points;
+        List<Point> points = new List<Point>();
 
-        public HorizontalLine(List<Point> points)
-        {
-            this.points = points;
+        public HorizontalLine(int HORIZONT_BORDER, int startX, int startY, char symbol)
+        { 
+            for (int i = 0; i < HORIZONT_BORDER; i++)
+            {
+                //creating new point objects
+                points.Add(new Point(startX, startY, symbol));
+
+                //shifting x location
+                startX += 1;
+            }
         }
 
         //Draw method
