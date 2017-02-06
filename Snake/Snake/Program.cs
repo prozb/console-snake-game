@@ -14,27 +14,23 @@ namespace Snake
             List<Point> points = new List<Point>();
 
             //Intitialization of game constats
-            const int HORTZONT_BORDER = 10;
+            const int HORIZONT_BORDER = 70;
+            const int VERTICAL_BORDER = 70;
+
+            const int BUFFER_WIDTH = 70;
+            const int BUFFER_HEIGHT = 70;
+
+            //set buffer size
+            Console.SetBufferSize(BUFFER_WIDTH, BUFFER_HEIGHT);
+
 
             //start point
-            int startX = 3;
-            int startY = 4;
+            int startX = 0;
+            int startY = 0;
 
             char symbol = '#';
 
-
-            for (int i = 0; i < HORTZONT_BORDER; i++)
-            {
-                //creating new point objects
-                points.Add(new Point(startX, startY, symbol));
-
-                //shifting x location
-                startX += 1;
-            }
-
-            //new line object
-            HorizontalLine horizontalLine = new HorizontalLine(points);
-
+            HorizontalLine horizontalLine = new HorizontalLine(HORIZONT_BORDER, startX, startY, symbol);
             horizontalLine.DrawHorizontalLine();
 
             Console.ReadKey();
