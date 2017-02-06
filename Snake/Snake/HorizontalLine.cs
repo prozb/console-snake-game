@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class HorizontalLine
+    class HorizontalLine : Figure
     {
-        //using list of the points
-        List<Point> points = new List<Point>();
-
         int HORIZONT_BORDER;
 
         public HorizontalLine(int HORIZONT_BORDER, int startX, int startY, char symbol)

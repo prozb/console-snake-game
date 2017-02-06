@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class VerticalLine
-    {//using list of the points
-        List<Point> points = new List<Point>();
-
+    class VerticalLine : Figure
+    {
         int VERTICAL_BORDER;
 
         public VerticalLine(int VERTICAL_BORDER, int startX, int startY, char symbol)
