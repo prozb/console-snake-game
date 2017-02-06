@@ -32,10 +32,18 @@ namespace Snake
             char symbol = '#';
 
             HorizontalLine horizontalLine = new HorizontalLine(HORIZONT_BORDER, startX, startY, symbol);
+            VerticalLine verticalLine = new VerticalLine(VERTICAL_BORDER, startX, startY, symbol);
 
             //draw top and bottom borders
             horizontalLine.DrawTopHorizontalLine();
             horizontalLine.DrawBottomHorizontalLine(BUFFER_HEIGHT);
+
+            //draw left and right border
+            verticalLine.DrawLeftVerticalLine();
+            verticalLine.DrawRightVerticalLine(BUFFER_WIDTH);
+
+            //set cursor in the center
+            Console.SetCursorPosition(BUFFER_WIDTH / 2, BUFFER_HEIGHT  / 2);
 
             Console.ReadKey();
         }
