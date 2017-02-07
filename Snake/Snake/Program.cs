@@ -10,9 +10,6 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            //Intitialization of game constats
-            const int HORIZONT_BORDER = 70;
-            const int VERTICAL_BORDER = 30;
 
             const int BUFFER_WIDTH = 70;
             const int BUFFER_HEIGHT = 30;
@@ -24,20 +21,25 @@ namespace Snake
             #region DRAWING BORDER
             //start point
             int startX = 0;
-            int startY = 1;
+            int startY = 0;
 
             char symbol = '#';
 
-            HorizontalLine horizontalLine = new HorizontalLine(HORIZONT_BORDER, startX, startY, symbol);
-            VerticalLine verticalLine = new VerticalLine(VERTICAL_BORDER, startX, startY, symbol);
+
+            //all about border
+            HorizontalLine horizontalLineTop = new HorizontalLine(startX, startY, symbol);
+            HorizontalLine horizontalLineBottom = new HorizontalLine(startX, Console.WindowHeight - 1, symbol);
+
+            VerticalLine verticalLineLeft = new VerticalLine(startX, startY, symbol);
+            VerticalLine verticalLineRigth = new VerticalLine(BUFFER_WIDTH - 2, startY, symbol);
 
             //draw top and bottom borders
-            horizontalLine.DrawTopHorizontalLine();
-            horizontalLine.DrawBottomHorizontalLine(BUFFER_HEIGHT);
+            horizontalLineTop.Draw();
+            horizontalLineBottom.Draw();
 
             //draw left and right border
-            verticalLine.DrawLeftVerticalLine();
-            verticalLine.DrawRightVerticalLine(BUFFER_WIDTH);
+            verticalLineLeft.Draw();
+            verticalLineRigth.Draw();
 
             //set cursor in the center
             Console.SetCursorPosition(BUFFER_WIDTH / 2, BUFFER_HEIGHT  / 2);
@@ -62,7 +64,7 @@ namespace Snake
             Snake snake = new Snake(beginPoint, snakeLenght, Direction.Right);
 
             //draw snake
-            snake.DrawSnake();
+            snake.Draw();
 
             #endregion
 
