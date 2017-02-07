@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class Point
+    class Point : Figure
     {
         //location of the point
         int x;
@@ -56,6 +56,21 @@ namespace Snake
         public char Symbol
         {
             get { return symbol; }
+        }
+
+        //clear * symbol
+        public void Clear()
+        {
+            symbol = ' ';
+
+            DrawPoint();
+        }
+
+        //draw point
+        public void DrawPoint()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(symbol);
         }
     }
 }
