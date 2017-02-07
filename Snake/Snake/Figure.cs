@@ -11,6 +11,8 @@ namespace Snake
         //using list of the points
         protected List<Point> points;
 
+
+        //common method for all another classes
         public void Draw()
         {
             foreach (Point point in points)
