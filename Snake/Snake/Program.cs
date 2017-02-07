@@ -66,6 +66,8 @@ namespace Snake
             //draw snake
             snake.Draw();
 
+            //TODO: Snake moves
+
             #endregion
 
             Console.ReadKey();
