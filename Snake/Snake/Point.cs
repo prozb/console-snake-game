@@ -34,7 +34,6 @@ namespace Snake
                 case Direction.Up:
                     y -= offset;
                     break;
-
                 case Direction.Right:
                     x += offset;
                     break;
