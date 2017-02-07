@@ -14,7 +14,7 @@ namespace Snake
             //new list of points for the vertical lines
             points = new List<Point>();
 
-            for (int i = 0; i < Console.BufferHeight - 3; i++)
+            for (int i = 0; i < Console.WindowHeight - 2; i++)
             {
                 //creating new point objects
                 points.Add(new Point(startX, startY + 1, symbol));
