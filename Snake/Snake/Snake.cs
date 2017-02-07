@@ -10,7 +10,7 @@ namespace Snake
     {
         //create direction
         Direction direction;
-
+        
         public Snake(Point beginPoint, int snakeLenght, Direction direction)
         {
             points = new List<Point>();
@@ -44,6 +44,9 @@ namespace Snake
 
             //add new head to the list
             points.Add(newHeadOfSnake);
+
+            //draw snake
+            Draw();
         }
 
         //new head method
