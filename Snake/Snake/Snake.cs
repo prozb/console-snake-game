@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class Snake
+    class Snake : Figure
     {
-        List<Point> snakePoints = new List<Point>();
-
+        
         public Snake(Point beginPoint, int snakeLenght, Direction direction)
         {
+            points = new List<Point>();
 
             for (int i = 0; i < snakeLenght; i++)
             {
@@ -20,20 +20,7 @@ namespace Snake
                 movedPoint.ShiftedPoint(i, direction);
 
                 //adding new point to the list
-                snakePoints.Add(movedPoint);
-            }
-            
-
-
-        }
-
-
-        //drawing method
-        public void DrawSnake()
-        {
-            foreach (Point snakePoint in snakePoints)
-            {
-                Console.Write(snakePoint.Symbol);
+                points.Add(movedPoint);
             }
         }
     }
