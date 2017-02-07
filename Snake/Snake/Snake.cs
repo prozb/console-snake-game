@@ -81,6 +81,30 @@ namespace Snake
                     break;
             }
         }
+
+        //ate or no
+        internal bool Eat(Point foodPoint)
+        {
+            Point head = GetNextPoint();
+
+            if (foodPoint.X == head.X &&
+                foodPoint.Y == head.Y)
+            {
+                //changing of symbol
+                foodPoint.Symbol = head.Symbol;
+
+                //adding point to the list
+                points.Add(foodPoint);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
         #endregion
 
         #region SNAKE PROPERTIES
