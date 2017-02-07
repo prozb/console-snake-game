@@ -64,6 +64,18 @@ namespace Snake
             //creating of the new snake
             Snake snake = new Snake(beginPoint, snakeLenght, Direction.Right);
 
+
+            //food symbol
+            char foodSymbol = '$';
+
+            //food creater object
+            FoodCreater newFood = new FoodCreater(foodSymbol);
+            Point foodPoint = new Point(newFood.XPosition, newFood.YPosition, newFood.Symbol);
+
+            //drawng point
+            foodPoint.DrawPoint();
+
+
             //draw snake
             snake.Draw();
 
@@ -76,11 +88,26 @@ namespace Snake
                     //cheking key
                     snake.HandleKey(keyInfo);
                 }
+
                 //delay
                 Thread.Sleep(100);
 
-                //Snake moves
-                snake.Move();
+                if (snake.Eat(foodPoint))
+                {
+                    //creating new food
+                    newFood = new FoodCreater(foodSymbol);
+                    foodPoint = new Point(newFood.XPosition, newFood.YPosition, newFood.Symbol);
+
+                    //draw next point
+                    foodPoint.DrawPoint();
+
+                }
+                else
+                {
+                    snake.Move();
+                }
+
+               
             }
 
             #endregion
