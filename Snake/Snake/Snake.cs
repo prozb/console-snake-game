@@ -61,6 +61,26 @@ namespace Snake
             newHeadOfStake.ShiftedPoint(1, direction);
             return newHeadOfStake;
         }
+
+        //cheking key 
+        public void HandleKey(ConsoleKeyInfo keyInfo)
+        {
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    direction = Direction.Up;
+                    break;
+                case ConsoleKey.DownArrow:
+                    direction = Direction.Down;
+                    break;
+                case ConsoleKey.LeftArrow:
+                    direction = Direction.Left;
+                    break;
+                case ConsoleKey.RightArrow:
+                    direction = Direction.Right;
+                    break;
+            }
+        }
         #endregion
 
         #region SNAKE PROPERTIES
