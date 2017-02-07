@@ -67,19 +67,23 @@ namespace Snake
             //draw snake
             snake.Draw();
 
-            for (int i = 0; i < 10; i++)
+            while (true)
             {
-                Thread.Sleep(1000);
-                //TODO: Snake moves
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+                    //cheking key
+                    snake.HandleKey(keyInfo);
+                }
+                //delay
+                Thread.Sleep(100);
+
+                //Snake moves
                 snake.Move();
-                snake.Draw();
             }
-           
-            
 
             #endregion
-
-            Console.ReadKey();
         }
     }
 }
