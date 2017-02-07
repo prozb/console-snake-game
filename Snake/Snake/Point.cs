@@ -56,6 +56,7 @@ namespace Snake
         public char Symbol
         {
             get { return symbol; }
+            set { symbol = value; }
         }
 
         //clear * symbol
