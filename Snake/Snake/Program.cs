@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Snake
 {
@@ -66,7 +67,15 @@ namespace Snake
             //draw snake
             snake.Draw();
 
-            //TODO: Snake moves
+            for (int i = 0; i < 10; i++)
+            {
+                Thread.Sleep(1000);
+                //TODO: Snake moves
+                snake.Move();
+                snake.Draw();
+            }
+           
+            
 
             #endregion
 
