@@ -9,7 +9,16 @@ namespace Snake
     class Figure
     {
         //using list of the points
-        protected List<Point> points = new List<Point>();
+        protected List<Point> points;
+
+        public void Draw()
+        {
+            foreach (Point point in points)
+            {
+                Console.SetCursorPosition(point.X, point.Y);
+                Console.Write(point.Symbol);
+            }
+        }
 
     }
 }
