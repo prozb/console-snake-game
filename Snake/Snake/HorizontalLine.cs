@@ -8,41 +8,18 @@ namespace Snake
 {
     class HorizontalLine : Figure
     {
-        int HORIZONT_BORDER;
-
-        public HorizontalLine(int HORIZONT_BORDER, int startX, int startY, char symbol)
+        public HorizontalLine(int startX, int startY, char symbol)
         {
-            this.HORIZONT_BORDER = HORIZONT_BORDER;
+            //new list of points for the horizontal lines
+            points = new List<Point>();
 
-            for (int i = 0; i < HORIZONT_BORDER; i++)
+            for (int i = 0; i < Console.WindowWidth - 1; i++)
             {
                 //creating new point objects
                 points.Add(new Point(startX, startY, symbol));
 
                 //shifting x location
                 startX += 1;
-            }
-        }
-
-        //Draw top line
-        public void DrawTopHorizontalLine()
-        {
-            Console.SetCursorPosition(points[0].X, points[0].Y);
-
-            foreach (Point point in points)
-            {
-                Console.Write(point.Symbol);
-            }
-        }
-
-        //Draw bottom line
-        public void DrawBottomHorizontalLine(int BUFFER_HEIGHT)
-        {
-            Console.SetCursorPosition(points[0].X, BUFFER_HEIGHT - 2);
-
-            foreach (Point point in points)
-            {
-                Console.Write(point.Symbol);
             }
         }
     }
