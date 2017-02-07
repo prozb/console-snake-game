@@ -28,6 +28,7 @@ namespace Snake
             }
         }
 
+        #region SNAKE METHODS
         internal void Move()
         {
             Point endOfSnake = new Point(points[0].X, points[0].Y, points[0].Symbol);
@@ -57,5 +58,17 @@ namespace Snake
             newHeadOfStake.ShiftedPoint(1, direction);
             return newHeadOfStake;
         }
+        #endregion
+
+        #region SNAKE PROPERTIES
+
+        //read and write direction property 
+        public Direction Direction
+        {
+            get { return direction; }
+            set { direction = value; }
+        }
+
+        #endregion
     }
 }
