@@ -15,6 +15,8 @@ namespace Snake
             const int BUFFER_WIDTH = 70;
             const int BUFFER_HEIGHT = 30;
 
+            int score;
+
             //set window size
             Console.SetWindowSize(BUFFER_WIDTH, BUFFER_HEIGHT);
             Console.SetBufferSize(BUFFER_WIDTH, BUFFER_HEIGHT);
@@ -93,7 +95,7 @@ namespace Snake
             while (true)
             {
                 //check is the snake within border
-                if (snake.IsHit(figures))
+                if (snake.IsHit(figures) || snake.IsHitTail())
                 {
                     break;
                 }
@@ -117,25 +119,47 @@ namespace Snake
 
                     //draw next point
                     foodPoint.DrawPoint();
-
                 }
                 else
                 {
                     snake.Move();
                 }
-
-               
             }
 
-            Console.SetCursorPosition(27, 15);
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("GAME OVER!");
+            //your score
+            score = snake.Score;
 
+            Console.SetCursorPosition(28, 11);
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("GAME OVER!");
             Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(25, 13);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("Your score is: " + score);
+            Console.ForegroundColor = ConsoleColor.White;
+
+            //end of the game
+            GameOver();
 
             Console.ReadLine();
 
             #endregion
+        }
+
+        //some console output
+        static void GameOver()
+        {
+
+            Console.SetCursorPosition(18, 15);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("================================");
+            Console.SetCursorPosition(18, 16);
+            Console.Write("Created by Pavlo Rozbytskyi 2017");
+            Console.SetCursorPosition(18, 17);
+            Console.Write("================================");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.SetCursorPosition(33, 18);
         }
     }
 }

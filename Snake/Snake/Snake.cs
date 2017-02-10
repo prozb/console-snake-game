@@ -10,6 +10,9 @@ namespace Snake
     {
         //create direction
         Direction direction;
+
+        //score
+        int score;
         
         public Snake(Point beginPoint, int snakeLenght, Direction direction)
         {
@@ -131,6 +134,9 @@ namespace Snake
                 //adding point to the list
                 points.Add(foodPoint);
 
+                //changing score
+                score++;
+
                 return true;
             }
             else
@@ -146,7 +152,7 @@ namespace Snake
             Point head = GetNextPoint();
 
             //collision between head and snake tail
-            for (int i = 0; i < points.Count; i++)
+            for (int i = 0; i < points.Count - 1; i++)
             {
                 if (points[i].X == head.X && points[i].Y == head.Y)
                 {
@@ -193,6 +199,13 @@ namespace Snake
             get { return direction; }
             set { direction = value; }
         }
+
+        //score property
+        public int Score
+        {
+            get { return score; }
+        }
+
 
         #endregion
     }
