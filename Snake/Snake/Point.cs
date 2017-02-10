@@ -70,8 +70,10 @@ namespace Snake
         //draw point
         public void DrawPoint()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.SetCursorPosition(x, y);
             Console.Write(symbol);
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
