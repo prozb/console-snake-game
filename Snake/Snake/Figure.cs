@@ -13,7 +13,7 @@ namespace Snake
 
 
         //common method for all another classes
-        public void Draw()
+        public virtual void Draw()
         {
             foreach (Point point in points)
             {
