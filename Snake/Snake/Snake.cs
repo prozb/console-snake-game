@@ -68,16 +68,51 @@ namespace Snake
             switch (keyInfo.Key)
             {
                 case ConsoleKey.UpArrow:
-                    direction = Direction.Up;
+                    //snake can't make 180 deegrees unwrap
+                    if(direction == Direction.Down)
+                    {
+                        direction = Direction.Down;
+                    }
+                    else
+                    {
+                        direction = Direction.Up;
+                    }
                     break;
+
                 case ConsoleKey.DownArrow:
-                    direction = Direction.Down;
+                    //snake can't make 180 deegrees unwrap
+                    if (direction == Direction.Up)
+                    {
+                        direction = Direction.Up;
+                    }
+                    else
+                    {
+                        direction = Direction.Down;
+                    }
                     break;
+
                 case ConsoleKey.LeftArrow:
-                    direction = Direction.Left;
+                    //snake can't make 180 deegrees unwrap
+                    if (direction == Direction.Right)
+                    {
+                        direction = Direction.Right;
+                    }
+                    else
+                    {
+                        direction = Direction.Left;
+                    }
                     break;
+
                 case ConsoleKey.RightArrow:
-                    direction = Direction.Right;
+                    //snake can't make 180 deegrees unwrap
+                    if (direction == Direction.Left)
+                    {
+                        direction = Direction.Left;
+                    }
+                    else
+                    {
+                        direction = Direction.Right;
+                    }
                     break;
             }
         }
@@ -104,6 +139,25 @@ namespace Snake
             }
         }
 
+        //collision between head and tail of the snake
+        internal bool IsHitTail()
+        {
+            //get head point
+            Point head = GetNextPoint();
+
+            //collision between head and snake tail
+            for (int i = 0; i < points.Count; i++)
+            {
+                if (points[i].X == head.X && points[i].Y == head.Y)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        //collicion between border and snake
         internal bool IsHit(List<Figure> figures)
         {
             Point head = GetNextPoint();
@@ -122,8 +176,12 @@ namespace Snake
             return false;
         }
 
-
-
+        //draw snake
+        public override void Draw()
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            base.Draw();
+        }
 
         #endregion
 
