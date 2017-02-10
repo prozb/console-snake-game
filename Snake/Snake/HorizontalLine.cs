@@ -22,5 +22,10 @@ namespace Snake
                 startX += 1;
             }
         }
+
+        public List<Point> Points
+        {
+            get { return points; }
+        }
     }
 }

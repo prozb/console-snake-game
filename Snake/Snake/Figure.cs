@@ -21,7 +21,9 @@ namespace Snake
                 Console.Write(point.Symbol);
             }
         }
-
-
+        public List<Point> Points
+        {
+            get { return points; }
+        }
     }
 }
