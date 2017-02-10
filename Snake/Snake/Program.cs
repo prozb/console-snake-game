@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Media;
+
 
 namespace Snake
 {
@@ -11,6 +13,9 @@ namespace Snake
     {
         static void Main(string[] args)
         {
+            //create new sounds player  
+            SoundPlayer sPlayer = new SoundPlayer(@"music\Song.wav");
+            sPlayer.Play();
 
             const int BUFFER_WIDTH = 70;
             const int BUFFER_HEIGHT = 30;
@@ -97,6 +102,13 @@ namespace Snake
                 //check is the snake within border
                 if (snake.IsHit(figures) || snake.IsHitTail())
                 {
+                    //stop music
+                    sPlayer.Stop();
+
+                    //explosion music
+                    sPlayer = new SoundPlayer(@"music\Explosion.wav");
+                    sPlayer.Play();
+
                     break;
                 }
 
