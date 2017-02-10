@@ -127,6 +127,14 @@ namespace Snake
                
             }
 
+            Console.SetCursorPosition(27, 15);
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("GAME OVER!");
+
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.ReadLine();
+
             #endregion
         }
     }
