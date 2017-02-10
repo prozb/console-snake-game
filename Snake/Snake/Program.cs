@@ -34,6 +34,16 @@ namespace Snake
             VerticalLine verticalLineLeft = new VerticalLine(startX, startY, symbol);
             VerticalLine verticalLineRigth = new VerticalLine(BUFFER_WIDTH - 2, startY, symbol);
 
+
+            //add borders to the list
+            List<Figure> figures = new List<Figure>();
+            figures.Add(horizontalLineTop);
+            figures.Add(horizontalLineBottom);
+            figures.Add(verticalLineLeft);
+            figures.Add(verticalLineRigth);
+
+
+
             //draw top and bottom borders
             horizontalLineTop.Draw();
             horizontalLineBottom.Draw();
@@ -41,6 +51,7 @@ namespace Snake
             //draw left and right border
             verticalLineLeft.Draw();
             verticalLineRigth.Draw();
+
 
             //set cursor in the center
             Console.SetCursorPosition(BUFFER_WIDTH / 2, BUFFER_HEIGHT  / 2);
@@ -81,6 +92,12 @@ namespace Snake
 
             while (true)
             {
+                //check is the snake within border
+                if (snake.IsHit(figures))
+                {
+                    break;
+                }
+
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo keyInfo = Console.ReadKey();

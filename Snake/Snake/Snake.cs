@@ -104,6 +104,26 @@ namespace Snake
             }
         }
 
+        internal bool IsHit(List<Figure> figures)
+        {
+            Point head = GetNextPoint();
+            foreach (Figure figure in figures)
+            {
+                foreach (Point point in figure.Points)
+                {
+                    if (point.X == head.X &&
+                        point.Y == head.Y)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+
+
 
         #endregion
 
